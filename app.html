@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="app-page">
+  <header class="app-header">
+    <div id="profile"></div>
+    <button id="signOut" class="signout-button">Sign Out</button>
+  </header>
+  <main class="task-container">
+    <div class="task-column">
+      <h2>Todo (<span id="todo-count">0</span>)</h2>
+      <div id="todo-list" class="task-list"></div>
+    </div>
+    <div class="task-column">
+      <h2>Completed (<span id="completed-count">0</span>)</h2>
+      <div id="completed-list" class="task-list"></div>
+    </div>
+    <div class="task-column">
+      <h2>Archived (<span id="archived-count">0</span>)</h2>
+      <div id="archived-list" class="task-list"></div>
+    </div>
+  </main>
+  <div class="task-input-container">
+    <input type="text" id="new-task" placeholder="Add a new task..." />
+    <button id="add-task">Add Task</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

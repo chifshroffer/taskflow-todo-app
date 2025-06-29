@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow - Landing Page</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="landing-page">
+  <div class="form-container colorful">
+    <h1><span class="logo-icon">📝</span> <span class="highlight">TaskFlow</span></h1>
+    <p class="subtitle">Your personal productivity companion</p>
+    <form id="userForm">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="date" id="dob" required />
+      <button type="submit">Start Planning</button>
+      <p id="error"></p>
+    </form>
+  </div>
+  <div id="locale-placeholder" data-locale="guj" hidden></div>
+  <script src="script.js"></script>
+</body>
+</html>
