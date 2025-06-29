@@ -1,40 +1,44 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const path = location.pathname;
-
   const user = JSON.parse(localStorage.getItem("taskflow-user"));
 
-  // Redirect logic
-  if (path.includes("index.html") && user) {
+  if (location.pathname.includes("index.html") && user) {
     location.href = "app.html";
   }
 
-  if (path.includes("app.html") && !user) {
+  if (location.pathname.includes("app.html") && !user) {
     location.href = "index.html";
   }
+});
 
   // Form logic
   const form = document.getElementById("userForm");
   if (form) {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const name = document.getElementById("name").value.trim();
-      const dob = new Date(document.getElementById("dob").value);
-      const age = new Date().getFullYear() - dob.getFullYear();
-      const error = document.getElementById("error");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-      if (!name || isNaN(dob)) {
-        error.textContent = "Please enter all fields.";
-        return;
-      }
-      if (age <= 10) {
-        error.textContent = "You must be older than 10 years.";
-        return;
-      }
+    const name = document.getElementById("name").value.trim();
+    const dob = document.getElementById("dob").value;
+    const error = document.getElementById("error");
 
-      localStorage.setItem("taskflow-user", JSON.stringify({ name, dob }));
-      location.href = "app.html";
-    });
-  }
+    if (!name || !dob) {
+      error.textContent = "Please enter your name and date of birth.";
+      return;
+    }
+
+    const age = new Date().getFullYear() - new Date(dob).getFullYear();
+
+    if (age <= 10) {
+      error.textContent = "You must be older than 10.";
+      return;
+    }
+
+    const user = { name, dob };
+    localStorage.setItem("taskflow-user", JSON.stringify(user));
+
+    // ✅ Redirect to app page
+    window.location.href = "app.html";
+  });
+}
 
   // App logic
   if (path.includes("app.html")) {
