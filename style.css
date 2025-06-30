@@ -1,3 +1,231 @@
-/* Simplified for brevity. Full CSS as per latest canvas update. */
-body { font-family: 'Segoe UI', sans-serif; background: #f5f7fb; }
-/* More styles are present in canvas... */
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f7fb;
+  color: #333;
+  min-height: 100vh;
+}
+
+/* ---------- LANDING PAGE ---------- */
+
+.landing-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+  color: white;
+  padding: 1rem;
+}
+
+.form-container.colorful {
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  border-radius: 15px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.form-container h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #185a9d;
+}
+
+.form-container .logo-icon {
+  font-size: 1.5rem;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #777;
+  margin-bottom: 1.5rem;
+}
+
+form input, form button {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+form input:focus {
+  border-color: #43cea2;
+  outline: none;
+}
+
+form button {
+  background: linear-gradient(to right, #43cea2, #185a9d);
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+form button:hover {
+  transform: scale(1.03);
+}
+
+#error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* ---------- APP PAGE ---------- */
+
+.app-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0d8abc;
+  padding: 1rem;
+  color: white;
+}
+
+#profile img {
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+}
+
+#profile span {
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+.signout-button {
+  background: white;
+  color: #0d8abc;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.task-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.task-column {
+  flex: 1 1 300px;
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.task-column h2 {
+  margin-bottom: 1rem;
+  color: #0d8abc;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.task {
+  background-color: #e7f3f9;
+  padding: 0.75rem;
+  border-left: 5px solid #0d8abc;
+  border-radius: 5px;
+}
+
+.task span {
+  display: block;
+  font-weight: 500;
+}
+
+.task small {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 0.3rem;
+}
+
+.task button {
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  background: #0d8abc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin-right: 0.25rem;
+}
+
+.task button:hover {
+  background: #095f7a;
+}
+
+.task-input-container {
+  padding: 1rem;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid #ddd;
+}
+
+.task-input-container input {
+  flex-grow: 1;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.task-input-container button {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  background-color: #0d8abc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.task-input-container button:hover {
+  background-color: #095f7a;
+}
+
+@media screen and (max-width: 768px) {
+  .task-container {
+    flex-direction: column;
+    padding: 0.5rem;
+  }
+}
